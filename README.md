@@ -1,23 +1,25 @@
 # Frontend Mentor - Blog preview card solution
 
-This is a solution to the [Blog preview card challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/blog-preview-card-ckPaj01IcS). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+![](.reference/preview.jpg)
+
+This is a solution to the [Blog preview card challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/blog-preview-card-ckPaj01IcS). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-  - [AI Collaboration](#ai-collaboration)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
+- [Frontend Mentor - Blog preview card solution](#frontend-mentor---blog-preview-card-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [What I learned](#what-i-learned)
+    - [Continued development](#continued-development)
+    - [Useful resources](#useful-resources)
+    - [AI Collaboration](#ai-collaboration)
+  - [Author](#author)
+  - [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -29,15 +31,18 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+<details>
+<summary>Mobile view</summary>
+<img src='screenshots/mobile-view.png' alt='Blog preview card challenge - Mobile view' width='375px'>
+</details>
+<details>
+<summary>Desktop view</summary>
+<img src='screenshots/desktop-view.png' alt='Blog preview card challenge - Desktop view'>
+</details>
+<details>
+<summary>Active state view</summary>
+<img src='screenshots/active-state-view.png' alt='Blog preview card challenge - Active state view'>
+</details>
 
 ### Links
 
@@ -49,73 +54,81 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
+- CSS Custom Properties (Variables)
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- BEM (Block Element Modifier) methodology
+- Modern CSS `clamp()` function for fluid typography
+- [React](https://react.js.org/) - JS library
+- [Vite](https://vitejs.dev/) - Next Generation Frontend Tooling
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+Working on this challenge provided several valuable takeaways regarding modern CSS techniques, responsive strategy, and semantic structure:
 
-To see how you can add code snippets, see below:
+1. **Native `object-fit` vs. Background Images:** I discovered the power of the `object-fit` CSS property. I was previously accustomed to handling image scaling using `background-size`, but learning how to apply `object-fit: cover` directly to `<img>` elements allowed for cleaner markup and better semantic handling.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
+2. **Pragmatic Responsive Design Decisions:** I realized that relying on complex responsive techniques like `aspect-ratio` isn't always necessary for every component. Instead of calculating aspect ratios, specifying an explicit fixed `height` in combination with `object-fit: cover` met the design requirements precisely across both mobile and desktop viewports, making the codebase cleaner, more readable, and easier to maintain.
+
+3. **Fluid Typography without Media Queries:** I implemented CSS `clamp()` to seamlessly adjust font sizes between mobile and desktop screen sizes, eliminating the need for extra media query definitions for typography.
+
+4. **Semantic HTML & Accessibility (a11y):** Refined the document structure by utilizing correct elements such as `<article>`, `<time dateTime="...">`, and `<footer>` within the component, along with specifying appropriate `alt` attributes and ARIA attributes (`aria-hidden`, `aria-label`).
+
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+/* Example of pragmatic layout and fluid typography */
+.card__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card__title {
+  font-size: clamp(1.25rem, 1.155rem + 0.405vw, 1.52rem);
 }
 ```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+This card component provides a solid foundation that can easily be scaled into more complex web applications. Moving forward, I plan to:
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- **Dynamic Data & API Integration**: Refactor the component to accept dynamic props and connect it with external APIs—such as news feeds, academic papers, blog CMS endpoints, or custom databases.
+
+- **Component Scalability**: Explore rendering lists of cards dynamically using data mapping and state management in React.
+
+- **Advanced Accessibility**: Continue deepening my knowledge of WCAG standards and keyboard navigation patterns for complex interactive components.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [`object-fit` CSS property - MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/object-fit) - Helped me understand how to control image fitting directly on `<img>` elements instead of relying on `background-size`.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [`aspect-ratio` CSS property - MDN Docs](http://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/aspect-ratio) - While I ultimately chose an explicit height for this specific design, experimenting with `aspect-ratio` expanded my CSS toolkit for future layout strategies.
 
 ### AI Collaboration
 
-Describe how you used AI tools (if any) during this project. This helps demonstrate your ability to work effectively with AI assistants.
+Throughout this challenge, I leveraged Google Gemini and Google Search AI Mode as thought partners to:
 
-- What tools did you use (e.g., ChatGPT, Claude, GitHub Copilot)?
-- How did you use them (e.g., debugging, generating boilerplate, brainstorming solutions)?
-- What worked well? What didn't?
+- Conduct deep code reviews focusing on Semantic HTML and BEM methodology.
 
-**Note: Delete this note and the content above if you didn't use AI, or replace with your own experience.**
+- Verify React/JSX attributes and Accessibility (a11y) best practices.
+
+- Explore modern CSS solutions like Fluid Typography via `clamp()`.
+
+Collaborating with AI helped streamline my problem-solving process and validate technical trade-offs efficiently.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- GitHub: [Kairung Vangmanaw](https://github.com/VangmanawKairung)
+- Frontend Mentor - [@VangmanawKairung](https://www.frontendmentor.io/profile/VangmanawKairung)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
+I would like to express my sincere gratitude to myself for staying persistent, curious, and dedicated to continuous improvement.
 
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+Special thanks to:
+
+- **Frontend Mentor** for providing realistic design challenges that help sharpen real-world frontend skills.
+
+- **macOS Preview**: Using the native Preview app alongside a design overlay proved invaluable for quickly inspecting pixel values and confirming measurements, significantly speeding up the development process compared to trial and error.
+
+- **Google Gemini & Google Search AI Mode** for serving as reliable technical advisors during the development and code review process.
