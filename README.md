@@ -46,8 +46,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Blog Preview Card with React, Vite, Fluid Typography, and BEM](https://www.frontendmentor.io/solutions/blog-preview-card-challenge-using-html5-and-css-RDFoXDYTWw)
+- Live Site URL: [Frontend Mentor | Blog preview card](https://challenged-by-frontend-mentor.github.io/blog-preview-card/)
 
 ## My process
 
